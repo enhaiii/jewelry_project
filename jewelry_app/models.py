@@ -107,7 +107,7 @@ class Orders(models.Model):
     id_products = models.ForeignKey(Products, verbose_name='Товар', on_delete=models.CASCADE)
     total_amount = models.DecimalField ('Итоговая цена', max_digits=20, decimal_places=2)
     id_clients = models.ForeignKey(Clients, verbose_name='Клиент', on_delete=models.CASCADE)
-    status = models.CharField('Статус', max_length=10, choices=ST)
+    status = models.CharField('Статус', max_length=1020, choices=ST)
     address = models.CharField('Адрес', max_length=25)
     payment = models.ForeignKey(Cards, verbose_name='Оплата', on_delete=models.CASCADE)
 
