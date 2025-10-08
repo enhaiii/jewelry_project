@@ -17,7 +17,7 @@ class Clients(models.Model):
     middle_name = models.CharField('Отчество', max_length=20)
     nik = models.CharField('Ник', max_length=20)
     email = models.EmailField('Email')
-    phone_number = models.CharField('Номер телефона', max_length=12, unique=True)
+    phone_number = models.CharField('Номер телефона', max_length=15, unique=True)
     birthday = models.DateField('Дата рождения', blank=True)
     city = models.CharField('Город', max_length=25)
     id_cards = models.ForeignKey(Cards, verbose_name='Карта', on_delete=models.CASCADE)
@@ -88,7 +88,7 @@ class Special_offers(models.Model):
 
 class Products_purchases(models.Model):
     id_products = models.ForeignKey(Products, verbose_name='Товар', on_delete=models.CASCADE)
-    id_purchases = models.ForeignKey(Purchases, verbose_name='Заказ', on_delete=models.CASCADE)
+    id_purchases = models.ForeignKey(Purchases, verbose_name='Покупка', on_delete=models.CASCADE)
     count = models.CharField('Количество', max_length=3)
 
     class Meta:
@@ -114,6 +114,18 @@ class Orders(models.Model):
     class Meta:
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
+
+    def __str__(self):
+        return f"{self.id}"
+    
+class Products_orders(models.Model):
+    id_products = models.ForeignKey(Products, verbose_name='Товар', on_delete=models.CASCADE)
+    id_orders = models.ForeignKey(Orders, verbose_name='Заказ', on_delete=models.CASCADE)
+    count = models.CharField('Количество', max_length=3)
+
+    class Meta:
+        verbose_name = "Товар в заказе"
+        verbose_name_plural = "Товары в заказах"
 
     def __str__(self):
         return f"{self.id}"
