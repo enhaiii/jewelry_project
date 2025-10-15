@@ -15,7 +15,7 @@ class Clients(models.Model):
     name = models.CharField('Имя', max_length=15)
     surname = models.CharField('Фамилия', max_length=15)
     middle_name = models.CharField('Отчество', max_length=20)
-    nik = models.CharField('Ник', max_length=20)
+    nickname = models.CharField('Ник', max_length=20)
     email = models.EmailField('Email')
     phone_number = models.CharField('Номер телефона', max_length=15, unique=True)
     birthday = models.DateField('Дата рождения', blank=True)
@@ -27,10 +27,9 @@ class Clients(models.Model):
         verbose_name_plural = "Клиенты"
 
     def __str__(self):
-        return f"{self.nik}"
+        return f"{self.nickname}"
 
 class Purchases(models.Model):
-    name = models.CharField('Название', max_length=30)
     img = models.CharField('Товар', max_length=60)
     id_clients = models.ForeignKey(Clients, verbose_name='Клиент', on_delete=models.CASCADE)
 
@@ -39,7 +38,7 @@ class Purchases(models.Model):
         verbose_name_plural = "Покупки"
 
     def __str__(self):
-        return f"{self.img}{self.name}"
+        return f"{self.img}{self.id}"
 
 class Catalogs(models.Model):
     name = models.CharField('Название', max_length=30)
