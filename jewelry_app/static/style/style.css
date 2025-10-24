@@ -3,6 +3,7 @@
 head, body, html {
     @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
 }
+
 .menu_img {
     width: 49px;
     height: 49px;
@@ -51,13 +52,55 @@ head, body, html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    background-color: white;
     width: 100%;
 }
 
 .main_img {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.lupa-img {
+    display: block;
+    width: 39px;
+    height: 39px;
+}
+
+.search {
+    font-size: 36px;
+    margin-left: 28px;
+    background-color: #D9C5BD;
+}
+
+.search_content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    margin: 0 auto;
+    border-radius: 7px;
+    width: 525px;
+    height: 69px;
+    background-color: #D9C5BD;
+    padding: 14px 20px 16px 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    width: 1068px;
+    height: 40px;
+}
+
+.text {
+    font-size: 34px;
+    margin-right: 814px;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
 }
