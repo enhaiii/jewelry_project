@@ -48,22 +48,19 @@ head, body, html {
 
 .head_content {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
-    background-color: white;
 }
 
 .container {
     width: 1200px;
-    background-color: white;
     margin: 0 auto;
 }
 
 header {
     position: fixed;
     background-color: white;
+    width: 100%;
 }
 
 .main_img {
@@ -95,21 +92,76 @@ header {
     padding: 14px 20px 16px 20px;
 }
 
+.container0 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
 .row {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    margin: 0 auto;
+    margin-top: 55px;
     width: 1068px;
-    height: 40px;
+    height: 68px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .text {
     font-size: 34px;
-    margin-right: 814px;
+}
+
+.container_text {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .arrow {
+    display: flex;
     width: 40px;
     height: 40px;
+}
+
+.container_arrow {
+    display: flex;
+}
+
+.container1 {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.cap {
+    font-size: 48px;
+}
+
+.container_cap {
+    text-align: center;
+    margin-bottom: 53px;
+}
+
+.popular_ring {
+    width: 478px;
+}
+
+.container_pR {
+    position: relative;
+    text-align: center;
+}
+
+.favorite {
+    width: 45px;
+    height: 45px;
+}
+
+.container_favorite {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+}
+
+.container2 {
+    width: 1200px;
+    margin: 0 auto;
 }
