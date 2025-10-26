@@ -7,7 +7,7 @@ head, body, html {
 .menu_img {
     width: 49px;
     height: 49px;
-    margin-left: 39px;
+    
 }
 
 .logo_img {
@@ -44,7 +44,6 @@ head, body, html {
     display: flex;
     justify-content: space-between;
     width: 207px;
-    margin-right: 39px;
 }
 
 .head_content {
@@ -54,7 +53,17 @@ head, body, html {
     justify-content: space-between;
     position: fixed;
     background-color: white;
-    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+header {
+    position: fixed;
+    background-color: white;
 }
 
 .main_img {
