@@ -61,6 +61,7 @@ header {
     position: fixed;
     background-color: white;
     width: 100%;
+    z-index: 10;
 }
 
 .main_img {
@@ -117,9 +118,9 @@ header {
 }
 
 .arrow {
-    display: flex;
     width: 40px;
     height: 40px;
+    transform: rotate(180deg);
 }
 
 .container_arrow {
@@ -141,24 +142,77 @@ header {
     margin-bottom: 53px;
 }
 
-.popular_ring {
-    width: 478px;
-}
-
-.container_pR {
-    position: relative;
-    text-align: center;
-}
-
 .favorite {
     width: 45px;
     height: 45px;
 }
 
 .container_favorite {
-    position: absolute;
-    top: 21px;
-    right: 21px;
+    display: flex;
+    justify-content: end;
+    padding-top: 21px;
+    padding-right: 21px;
+    padding-left: 21px;
+    padding-bottom: 21px;
+    width: 450px;
+    height: 490px;
+    background-image: url("/static/media/Ring1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.arrow0 {
+    width: 73px;
+    height: 73px;
+}
+
+.pink_arrow {
+    width: 73px;
+    height: 73px;
+}
+
+.container_arrow0 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.container_arrowpink {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.container_popular {
+    display: flex;
+    justify-self: center;
+    width: 800px;
+    height: 490px;
+}
+
+.text_popular {
+    font-size: 45px;
+}
+
+.text_popular0 {
+    display: flex;
+    margin-top: 21px;
+}
+
+.text_pop {
+    font-size: 40px;
+}
+
+.container_column {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+}
+
+.text_popular1{
+    display: flex;
 }
 
 .container2 {
