@@ -95,7 +95,6 @@ header {
 
 .container0 {
     width: 1200px;
-    margin: 0 auto;
 }
 
 .row {
@@ -129,7 +128,6 @@ header {
 
 .container1 {
     width: 1200px;
-    margin: 0 auto;
     margin-bottom: 100px;
 }
 
@@ -139,26 +137,20 @@ header {
 
 .container_cap {
     text-align: center;
-    margin-bottom: 53px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 .favorite {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -435px;
     width: 45px;
     height: 45px;
 }
 
-.container_favorite {
-    display: flex;
-    justify-content: end;
-    padding-top: 21px;
-    padding-right: 21px;
-    padding-left: 21px;
-    padding-bottom: 21px;
-    width: 450px;
-    height: 490px;
-    background-image: url("/static/media/Ring1.png");
-    background-repeat: no-repeat;
-    background-position: center;
+.ring1 {
+    position: relative;
 }
 
 .arrow0 {
@@ -226,28 +218,206 @@ header {
 
 .container2 {
     width: 1200px;
-    margin: 0 auto;
     margin-bottom: 200px;
 }
 
-.bb {
-    padding-top: 21px;
-    padding-right: 21px;
-    padding-left: 21px;
-    padding-bottom: 21px;
-    width: 217px;
-    height: 217px;
-    background-image: url("/static/media/FotoB");
-    background-repeat: no-repeat;
-    background-position: center;
+.favorite0 {
+    position: absolute;
+    margin-left: -45px;
+    margin-top: 15px;
+    width: 29px;
+    height: 29px;
 }
 
-.b {
+.container3 {
+    width: 1200px;
+    margin-bottom: 200px;
+}
+
+.foto_bracelet {
+    position: relative;
+    width: 238px;
+    height: 238px;
+}
+
+.container_bracelet {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
     width: 996px;
     height: 977px;
 }
 
-.container3 {
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 238px;
+    height: 297px;
+}
 
+.text_grid {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+.text_nosale_price {
+    font-size: 12px;
+    color: #767676;
+    text-decoration: line-through;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.price {
+    display: flex;
+}
+
+.name_jewelry {
+    display: flex;
+    margin-top: 5px;
+}
+
+.special_img {
+    width: 530px;
+    height: 530px;
+}
+
+.container_special_offers {
+    display: flex;
+    width: 1001px;
+    height: 530px;
+}
+
+.text_red {
+    font-size: 35px;
+    color: #A00404;
+
+}
+
+.caption_red {
+    display: flex;
+    width: 261px;
+    margin-bottom: 32px;
+    margin-right: 383px;
+}
+
+.special_price {
+    font-size: 35px;
+
+}
+
+.column_special {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+    width: 364px;
+    height: 520px;
+}
+
+.special_price_nosale {
+    font-size: 22px;
+    color: #767676;
+    text-decoration: line-through;
+    margin-left: 17px;
+}
+
+.special_favorite {
+    width: 40px;
+    height: 40px;
+    margin-left: 120px;
+}
+
+.description {
+    font-size: 30px;
+    margin-top: 25px;
+}
+
+.more {
+    font-size: 30px;
+}
+
+.read_more {
+    font-size: 16px;
+    color: #767676;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+.container_more {
+    display: flex;
+}
+
+.arrow_red {
+    width: 63px;
+    height: 63px;
+    margin-top: 215px;
+    margin-left: 299px;
+}
+
+.container_special {
+    width: 1200px;
+    height: 520px;
+}
+
+.boss_container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container_end {
+    display: flex;
+    margin-top: 300px;
+    width: 100%;
+    height: 425px;
+    background-color: #BA988B;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.text_footer {
+    color:#ffffff;
+    font-size: 24px;
+    margin-top: 27px;
+}
+
+.footer_content1 {
+    width: 144x;
+    height: 400px;
+    padding-top: 73px;
+    padding-left: 360px;
+}
+
+.footer_content2 {
+    width: 144x;
+    height: 400px;
+    padding-top: 73px;
+    padding-left: 250px;
+}
+
+.footer_content3{
+    width: 144x;
+    height: 400px;
+    padding-left: 200px;
+}
+
+.img_footer {
+    padding-top: 73px;
+    /* padding-left: 150px; */
+    padding-right: 15px;
+}
+
+.img_footer_others {
+    padding-top: 73px;
+    padding-right: 15px;
+}
+
+.logo_column {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo_footer {
+    width: 300px;
+    height: 300px;
+    margin-left: 190px;
 }
