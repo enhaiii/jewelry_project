@@ -199,6 +199,7 @@ header {
 .text_popular0 {
     display: flex;
     margin-top: 21px;
+    margin-bottom: 15px;
 }
 
 .text_pop {
@@ -209,13 +210,44 @@ header {
     display: flex;
     flex-direction: column;
     width: 440px;
+    height: 600px;
 }
 
 .text_popular1{
     display: flex;
 }
 
+.text_Lprice {
+    font-size: 32px;
+    color: #767676;
+    text-decoration: line-through;
+    margin-left: 15px;
+}
+
 .container2 {
     width: 1200px;
     margin: 0 auto;
+    margin-bottom: 200px;
+}
+
+.bb {
+    padding-top: 21px;
+    padding-right: 21px;
+    padding-left: 21px;
+    padding-bottom: 21px;
+    width: 217px;
+    height: 217px;
+    background-image: url("/static/media/FotoB");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.b {
+    display: grid;
+    width: 996px;
+    height: 977px;
+}
+
+.container3 {
+
 }
