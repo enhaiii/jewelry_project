@@ -69,13 +69,15 @@
 
 .favorite {
     position: absolute;
-    margin-left: 193px;
+    margin-left: 100px;
     width: 45px;
     height: 45px;
 }
 
 .ring1 {
     position: relative;
+    width: 440px;
+    height: 435px;
 }
 
 .arrow0 {
@@ -110,7 +112,7 @@
 }
 
 .text_popular {
-    font-size: 45px;
+    font-size: 40px;
 }
 
 .text_popular0 {
@@ -135,7 +137,7 @@
 }
 
 .text_Lprice {
-    font-size: 32px;
+    font-size: 27px;
     color: #767676;
     text-decoration: line-through;
     margin-left: 15px;

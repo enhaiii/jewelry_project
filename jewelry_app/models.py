@@ -52,7 +52,7 @@ class Catalogs(models.Model):
 
 class Products(models.Model):
     name = models.CharField('Title', max_length=30)
-    img = models.ImageField(verbose_name='Foto')
+    img = models.ImageField(upload_to='Jewelry_imgs/', verbose_name='Foto')
     price = models.DecimalField ('Price', max_digits=20, decimal_places=2)
     old_price = models.DecimalField ('Old price', max_digits=20, decimal_places=2, default=45000)
     article = models.CharField('Article', max_length=12, default="000000000000")
@@ -66,7 +66,7 @@ class Products(models.Model):
         verbose_name_plural = "Products"
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.id}" f"{self.name}"
 
 class Products_catalogs(models.Model):
     id_products = models.ForeignKey(Products, verbose_name='Product', on_delete=models.CASCADE)
