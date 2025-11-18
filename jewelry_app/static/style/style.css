@@ -68,16 +68,17 @@
 }
 
 .favorite {
-    position: absolute;
-    margin-left: 100px;
     width: 45px;
     height: 45px;
 }
 
 .ring1 {
-    position: relative;
     width: 440px;
     height: 435px;
+}
+
+.sum_popular {
+    display: flex;
 }
 
 .arrow0 {
@@ -117,6 +118,7 @@
 
 .text_popular0 {
     display: flex;
+    justify-content: space-between;
     margin-top: 21px;
     margin-bottom: 15px;
 }
@@ -151,7 +153,6 @@
 .favorite0 {
     position: absolute;
     margin-top: 2px;
-    margin-left: 91px;
     width: 29px;
     height: 29px;
 }
@@ -167,14 +168,14 @@
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 55px;
     width: 900px;
-    height: 977px;
+    height: 1300px;
 }
 
 .column {
     display: flex;
     flex-direction: column;
     width: 238px;
-    height: 297px;
+    height: 305px;
 }
 
 .text_grid {
@@ -192,6 +193,17 @@
 
 .price {
     display: flex;
+}
+
+.container_favorite {
+    width: 29px;
+    height: 29px;
+}
+
+.favorite_price {
+    display: flex;
+    width: 233px;
+    justify-content: space-between;
 }
 
 .name_jewelry {

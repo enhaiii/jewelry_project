@@ -6,28 +6,28 @@
     <div class="base">
         <div class="total_container">
             <div class="all_imgs">
-                <img src="../static/media/FotoB.png" alt="Bracelet" class="img_big">
+                <img src="../static{{jeweler.img.url}}" alt="Bracelet" class="img_big">
                 <div class="container_imgs">
-                    <a href="#"><img src="../static/media/FotoB.png" alt="Bracelet" class="img_mini"></a>
-                    <a href="#"><img src="../static/media/FotoB.png" alt="Bracelet" class="img_mini"></a>
-                    <a href="#"><img src="../static/media/FotoB.png" alt="Bracelet" class="img_mini"></a>
+                    <a href="#"><img src="../static{{jeweler.img.url}}" alt="Bracelet" class="img_mini"></a>
+                    <a href="#"><img src="../static{{jeweler.img.url}}" alt="Bracelet" class="img_mini"></a>
+                    <a href="#"><img src="../static{{jeweler.img.url}}" alt="Bracelet" class="img_mini"></a>
                 </div>
             </div>
             <div class="all_text">
                 <div class="container_favorite">
-                    <p class="name">Gift from the Sun</p>
+                    <p class="name">{{jeweler.name}}</p>
                     <a href="#"><img src="../static/media/Favorite.png" alt="favorite" class="favorite"></a>
                 </div>
                 <div class="price">
-                    <p class="text2">30 000$</p>
-                    <p class="old_price">32 500$</p>
+                    <p class="text2">{{jeweler.price}}$</p>
+                    <p class="old_price">{{jeweler.old_price}}$</p>
                 </div>
                 <p class="text2">Description:</p>
-                <p class="text3">Article: 22349810</p>
-                <p class="text3">Material: Gold</p>
-                <p class="text3">Insert: None</p>
-                <p class="text3">Country: Italy</p>
-                <p class="text3">Weight: 5,02 gr</p>
+                <p class="text3">Article: {{jeweler.article}}</p>
+                <p class="text3">Material: {{jeweler.material}}</p>
+                <p class="text3">Insert: {{jeweler.insert}}</p>
+                <p class="text3">Country: {{jeweler.country}}</p>
+                <p class="text3">Weight: {{jeweler.weight}} gr</p>
                 <div class="bottom">
                     <a href="#"><p class="text_bottom">Buy</p></a>
                 </div>

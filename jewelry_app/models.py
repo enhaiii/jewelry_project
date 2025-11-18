@@ -54,6 +54,7 @@ class Products(models.Model):
     name = models.CharField('Title', max_length=30)
     img = models.ImageField(upload_to='Jewelry_imgs/', verbose_name='Foto')
     price = models.DecimalField ('Price', max_digits=20, decimal_places=2)
+    description = models.CharField('Desription', max_length=300, null=True, default="")
     old_price = models.DecimalField ('Old price', max_digits=20, decimal_places=2, default=45000)
     article = models.CharField('Article', max_length=12, default="000000000000")
     material = models.CharField('Material', max_length=50, default="Gold")
