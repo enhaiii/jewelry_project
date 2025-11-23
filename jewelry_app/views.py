@@ -5,10 +5,24 @@ def online(request):
     product_jewelrys = Products.objects.filter(id=10).first()
     all_jewelrys = Products.objects.all()
     special = Products.objects.filter(id=8).first()
+    look = request.POST.get('search', '')
+    search_catalogs = request.POST.get('catalogs', )
+    sort = request.POST.get('sort', '')
+
+    if look and search_catalogs :
+        all_jewelrys = Products.objects.filter(name__icontains=look, games_genres__name=search_catalogs)
+    elif search_catalogs:
+        all_jewelrys = Products.objects.filter(games_genres__name=search_catalogs)
+    elif look:
+        all_jewelrys = Products.objects.filter(name__icontains=look)
+
     context = {
         "product_jewelrys": product_jewelrys,
         "all_jewelrys": all_jewelrys,
         "special": special,
+        "look": look,
+        "search_catalogs": search_catalogs,
+        "sort": sort,
     }
     return render(request, 'site.html', context)
 

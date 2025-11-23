@@ -37,8 +37,12 @@
     </div>
     <div class="container0">
         <div class="search_content">
-            <a href="#"><img src="../static/media/Lupa.png" alt="Lupa" class="lupa_img"></a>
-            <input type="search" placeholder="Search..." class="search">
+                <form class="searchbar" method="post" >
+                    <button type="submit" class="button"><img src="../static/media/Lupa.png" alt="lupa" class="lupa"></button>
+                    <input type="text" placeholder="Search.." id="search" name="search" value="{{ request.POST.search }}" class="search">
+                    <!-- <input type="text" class="search" name="catalogs" value="{{ request.POST.catalogs }}">
+                    <input type="text" class="search" name="sort" value="{{ request.POST.sort }}">
+                </form> -->
         </div>
     </div>
     <div class="container_catalog">

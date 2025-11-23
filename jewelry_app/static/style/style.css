@@ -7,22 +7,29 @@
     width: 100%;
 }
 
-.lupa-img {
-    display: block;
-    width: 39px;
-    height: 39px;
-}
-
 .search {
     font-size: 34px;
-    margin-left: 28px;
     background-color: #D9C5BD;
+    
+}
+
+.lupa {
+    width: 40px;
+    text-align: center;
+}
+
+.text_search {
+    font-size: 34px;
+    color: black;
+    opacity: 0.5;
+    text-align: center;
 }
 
 .search_content {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
     border-radius: 7px;
     width: 525px;
