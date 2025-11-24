@@ -26,7 +26,7 @@
                         <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite"></a>
                     </div>
                     <div class="text_popular1">
-                        <a href="product_card/"><p class="text_pop">{{product_jewelrys.name}}</p></a>
+                        <a href="product_card/{{product_jewelrys.id}}"><p class="text_pop">{{product_jewelrys.name}}</p></a>
                     </div>
                 </div>
             </div>
@@ -38,11 +38,12 @@
     <div class="container0">
         <div class="search_content">
                 <form class="searchbar" method="post" >
+                    {% csrf_token %}
                     <button type="submit" class="button"><img src="../static/media/Lupa.png" alt="lupa" class="lupa"></button>
                     <input type="text" placeholder="Search.." id="search" name="search" value="{{ request.POST.search }}" class="search">
-                    <!-- <input type="text" class="search" name="catalogs" value="{{ request.POST.catalogs }}">
-                    <input type="text" class="search" name="sort" value="{{ request.POST.sort }}">
-                </form> -->
+                    <input type="text" class="hidden" name="catalogs" value="{{ request.POST.catalogs }}">
+                    <input type="text" class="hidden" name="sort" value="{{ request.POST.sort }}">
+                </form>
         </div>
     </div>
     <div class="container_catalog">
@@ -83,26 +84,28 @@
                 </div>
             </div>
         </div>
-        <div class="container_bracelet">
-            {%for jewelry in all_jewelrys%}
-                <div class="column">
-                    <div class="bracelet">
-                        <img src="../static{{jewelry.img.url}}" alt="Bracelet" class="foto_bracelet">
-                    </div>
+        <div class="just">
+            <div class="container_bracelet">
+                {%for jewelry in all_jewelrys%}
+                    <div class="column">
+                        <div class="bracelet">
+                            <img src="../static{{jewelry.img.url}}" alt="Bracelet" class="foto_bracelet">
+                        </div>
                     <div class="favorite_price">
                         <div class="price">
-                            <p class="text_grid">{{jewelry.price}}$</p>
-                            <p class="text_nosale_price">{{jewelry.old_price}}$</p>
-                        </div>
-                        <div class="container_favorite">
-                            <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite0"></a>
+                                <p class="text_grid">{{jewelry.price}}$</p>
+                                <p class="text_nosale_price">{{jewelry.old_price}}$</p>
+                            </div>
+                            <div class="container_favorite">
+                                <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite0"></a>
+                            </div>
+                    </div>
+                        <div class="name_jewelry">
+                            <a href="/product_card/{{jewelry.id}}"><p class="text_grid">{{jewelry.name}}</p></a>
                         </div>
                     </div>
-                    <div class="name_jewelry">
-                        <a href="/product_card/{{jewelry.id}}"><p class="text_grid">{{jewelry.name}}</p></a>
-                    </div>
-                </div>
-            {%endfor%}
+                {%endfor%}
+            </div>
         </div>
     </div>
     <div class="container_special">

@@ -38,6 +38,19 @@
     padding: 14px 20px 16px 20px;
 }
 
+.searchbar {
+    display: inline-flex;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #D9C5BD;
+}
+
 .container0 {
     width: 1200px;
 }
@@ -170,10 +183,14 @@
     height: 230px;
 }
 
+.just {
+    margin-top: 55px;
+}
+
 .container_bracelet {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 55px;
+    /* margin-top: 55px; */
     width: 900px;
     height: 1300px;
 }
