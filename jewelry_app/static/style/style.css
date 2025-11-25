@@ -30,7 +30,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin-bottom: 30px;
     border-radius: 7px;
     width: 525px;
     height: 69px;
@@ -52,7 +52,9 @@ button {
 }
 
 .container0 {
-    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    width: 834px;
 }
 
 .row {
@@ -185,14 +187,15 @@ button {
 
 .just {
     margin-top: 55px;
+    margin-left: 35px;
 }
 
 .container_bracelet {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* margin-top: 55px; */
+    grid-template-rows: auto auto auto;
+    row-gap: 20px;
     width: 900px;
-    height: 1300px;
 }
 
 .column {
