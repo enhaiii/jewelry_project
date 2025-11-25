@@ -16,6 +16,10 @@ def online(request):
     elif search_query:
         all_jewelrys = Products.objects.filter(name__icontains=search_query)
 
+    match sort:
+        case "date-reverse":
+            all_jewelrys
+
     context = {
         "product_jewelrys": product_jewelrys,
         "all_jewelrys": all_jewelrys,
