@@ -37,60 +37,35 @@
     </div>
     <div class="container_catalog">
         <div class="container1">
-            <div class="row">
-                <div class="container_text">
-                    <a href="#"><p class="text"> New products </p></a>
+            {% for category in categories%}
+                <div class="row">
+                    <div class="container_text">
+                        <a href="?catalogs={{ category.name }}&search={{ request.GET.search }}&sort={{ request.GET.sort }}" {% if request.GET.catalogs == category.name %} style="color: #767676;" {% endif %}><p class="text"> {{category.name}} </p></a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="container_text">
-                    <a href="#"><p class="text"> Popular </p></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container_text">
-                    <a href="#"><p class="text"> Special offers </p></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container_text">
-                    <a href="#"><p class="text"> Rings </p></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container_text">
-                    <a href="#"><p class="text"> Earrings </p></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container_text">
-                    <a href="#"><p class="text"> Jewelry on the arm </p></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container_text">
-                    <p class="text"> Pendants and chains </p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="just">
             <div class="container0">
                 <div class="search_content">
-                    <form class="searchbar" method="post" >
-                        {% csrf_token %}
+                    <form class="searchbar" method="get" >
                         <button type="submit" class="button"><img src="../static/media/Lupa.png" alt="lupa" class="lupa"></button>
-                        <input type="text" placeholder="Search.." id="search" name="search" value="{{ request.POST.search }}" class="search">
+                        <input type="text" placeholder="Search.." id="search" name="search" value="{{ request.GET.search }}" class="search">
                     </form>
                 </div>
-                <select name="Sort" id="sort">
-                    <option value="date.">Date</option>
-                    <option value="date_reverse">Date revers</option>
-                    <option value="A-Z">A-Z</option>
-                    <option value="Z-A">Z-A</option>
-                    <option value="max_price">Max price - min price</option>
-                    <option value="min_price">Min price - max price</option>
-                </select>
+                <form method="get" id="sort-form">
+                    <input type="hidden" name="search" value="{{ request.GET.search }}">
+                    <input type="hidden" name="catalogs" value="{{ request.GET.catalogs }}">
+                    <select name="sort" id="sort" onchange="this.form.submit()">
+                        <option value="sort" class="none">Sort</option>
+                        <option value="A-Z" {% if sort == "A-Z" %} selected {% endif %}>A-Z</option>
+                        <option value="Z-A" {% if sort == "Z-A" %} selected {% endif %}>Z-A</option>
+                        <option value="high_price" {% if sort == "high_price" %} selected {% endif %}>High price - min price</option>
+                        <option value="min_price" {% if sort == "min_price" %} selected {% endif %}>Min price - high price</option>
+                    </select>
+                </form>
             </div>
+            {% if not search_query %}
             <div class="container_bracelet">
                 {%for jewelry in all_jewelrys%}
                     <div class="column">
@@ -112,6 +87,33 @@
                     </div>
                 {%endfor%}
             </div>
+            {% else %}
+            <div class="container_bracelet">
+                {% if all_jewelrys%}
+                {%for jewelry in all_jewelrys%}
+                    <div class="column">
+                        <div class="bracelet">
+                            <img src="../static{{jewelry.img.url}}" alt="Bracelet" class="foto_bracelet">
+                        </div>
+                    <div class="favorite_price">
+                        <div class="price">
+                                <p class="text_grid">{{jewelry.price}}$</p>
+                                <p class="text_nosale_price">{{jewelry.old_price}}$</p>
+                            </div>
+                            <div class="container_favorite">
+                                <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite0"></a>
+                            </div>
+                    </div>
+                        <div class="name_jewelry">
+                            <a href="/product_card/{{jewelry.id}}"><p class="text_grid">{{jewelry.name}}</p></a>
+                        </div>
+                    </div>
+                {%endfor%}
+                {% else %}
+                <p class="nothing">There are no products according to your requests!</p>
+                {% endif %}
+            </div>
+            {% endif %}
         </div>
     </div>
     <div class="container_special">

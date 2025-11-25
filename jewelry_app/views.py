@@ -4,21 +4,30 @@ from .models import *
 def online(request):
     product_jewelrys = Products.objects.filter(id=10).first()
     all_jewelrys = Products.objects.all()
-    special = Products.objects.filter(id=8).first()
-    search_query = request.POST.get('search', '')
-    search_catalogs = request.POST.get('catalogs', )
-    sort = request.POST.get('sort', '')
+    categories = Catalogs.objects.all()
+    special = Products.objects.filter(id=11).first()
+    search_query = request.GET.get('search', '')
+    search_catalogs = request.GET.get('catalogs', '')
+    sort = request.GET.get('sort', '')
 
     if search_query and search_catalogs :
-        all_jewelrys = Products.objects.filter(name__icontains=search_query, search_catalogs__name=search_catalogs)
+        all_jewelrys = Products.objects.filter(name__icontains=search_query, catalogs__name=search_catalogs)
     elif search_catalogs:
-        all_jewelrys = Products.objects.filter(search_catalogs__name=search_catalogs)
+        all_jewelrys = Products.objects.filter(catalogs__name=search_catalogs)
     elif search_query:
         all_jewelrys = Products.objects.filter(name__icontains=search_query)
 
     match sort:
-        case "date-reverse":
-            all_jewelrys
+        case "A-Z":
+            all_jewelrys = all_jewelrys.order_by("name")
+        case "Z-A":
+            all_jewelrys = all_jewelrys.order_by("-name")
+        case "high_price":
+            all_jewelrys = all_jewelrys.order_by("-price")
+        case "min_price":
+            all_jewelrys = all_jewelrys.order_by("price")
+        case _:
+            all_jewelrys = all_jewelrys.order_by("id")
 
     context = {
         "product_jewelrys": product_jewelrys,
@@ -27,6 +36,7 @@ def online(request):
         "search_query": search_query,
         "search_catalogs": search_catalogs,
         "sort": sort,
+        "categories": categories,
     }
     return render(request, 'site.html', context)
 

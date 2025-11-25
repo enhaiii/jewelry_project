@@ -54,6 +54,7 @@ button {
 .container0 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 834px;
 }
 
@@ -227,6 +228,19 @@ button {
     height: 29px;
 }
 
+.none {
+    display: none;
+}
+
+select {
+    display: inline-block;
+    background-color: #D9C5BD;
+    font-size: 20px;
+    height: 35px;
+    border-radius: 6px;
+    color: #767676;
+}
+
 .favorite_price {
     display: flex;
     width: 233px;
@@ -245,6 +259,11 @@ button {
 .special_img {
     width: 530px;
     height: 530px;
+}
+
+.nothing {
+    color: rgb(110, 18, 18);
+    font-size: 20px;
 }
 
 .container_special_offers {
