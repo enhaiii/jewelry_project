@@ -51,19 +51,34 @@
                     <form class="searchbar" method="get" >
                         <button type="submit" class="button"><img src="../static/media/Lupa.png" alt="lupa" class="lupa"></button>
                         <input type="text" placeholder="Search.." id="search" name="search" value="{{ request.GET.search }}" class="search">
+                        {% if search_query%}
+                            <a href="?catalogs={{ request.GET.catalogs }}" id="clear-search"><img src="../static/media/Close.png" alt="close" class="close"></a>
+                        {% endif %}
                     </form>
                 </div>
-                <form method="get" id="sort-form">
-                    <input type="hidden" name="search" value="{{ request.GET.search }}">
-                    <input type="hidden" name="catalogs" value="{{ request.GET.catalogs }}">
-                    <select name="sort" id="sort" onchange="this.form.submit()">
-                        <option value="sort" class="none">Sort</option>
-                        <option value="A-Z" {% if sort == "A-Z" %} selected {% endif %}>A-Z</option>
-                        <option value="Z-A" {% if sort == "Z-A" %} selected {% endif %}>Z-A</option>
-                        <option value="high_price" {% if sort == "high_price" %} selected {% endif %}>High price - min price</option>
-                        <option value="min_price" {% if sort == "min_price" %} selected {% endif %}>Min price - high price</option>
-                    </select>
-                </form>
+                <div class="width">
+                    <form method="get" id="sort-form">
+                        <input type="hidden" name="search" value="{{ request.GET.search }}">
+                        <input type="hidden" name="catalogs" value="{{ request.GET.catalogs }}">
+                        <div class="resets">
+                            {% if sort and search_catalogs %}
+                            <a href="/?sort={{ request.GET.sort }}" class="reset_button">Reset category</a>
+                            <a href="/?&catalogs={{ request.GET.catalogs }}" class="reset_button" style="color: #ffffff !important;">Reset sort</a>
+                            {% elif search_catalogs%}
+                            <a href="/?sort={{ request.GET.sort }}" class="reset_button" style="color: #ffffff !important;">Reset category</a>
+                            {% elif sort%}
+                            <a href="/?catalogs={{ request.GET.catalogs }}" class="reset_button" style="color: #ffffff !important;">Reset sort</a>
+                            {% endif %}
+                        </div>
+                        <select name="sort" id="sort" onchange="this.form.submit()">
+                            <option value="sort" class="none">Sort</option>
+                            <option value="A-Z" {% if sort == "A-Z" %} selected {% endif %}>A-Z</option>
+                            <option value="Z-A" {% if sort == "Z-A" %} selected {% endif %}>Z-A</option>
+                            <option value="high_price" {% if sort == "high_price" %} selected {% endif %}>High price - min price</option>
+                            <option value="min_price" {% if sort == "min_price" %} selected {% endif %}>Min price - high price</option>
+                        </select>
+                    </form>
+                </div>
             </div>
             {% if not search_query %}
             <div class="container_bracelet">

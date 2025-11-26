@@ -10,12 +10,18 @@
 .search {
     font-size: 34px;
     background-color: #D9C5BD;
-    
+    z-index: 0;
 }
 
 .lupa {
     width: 40px;
     text-align: center;
+}
+
+.close {
+    position: relative;
+    z-index: 1;
+    width: 20px;
 }
 
 .text_search {
@@ -32,7 +38,7 @@
     justify-content: center;
     margin-bottom: 30px;
     border-radius: 7px;
-    width: 525px;
+    width: 510px;
     height: 69px;
     background-color: #D9C5BD;
     padding: 14px 20px 16px 20px;
@@ -186,6 +192,31 @@ button {
     height: 230px;
 }
 
+#sort {
+    width: 245px;
+}
+
+.reset_button {
+    width: 115px;
+    height: 20px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #712828;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.width {
+    width: 245px;
+    height: 100px;
+}
+
+.resets {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+
 .just {
     margin-top: 55px;
     margin-left: 35px;
@@ -262,7 +293,7 @@ select {
 }
 
 .nothing {
-    color: rgb(110, 18, 18);
+    color: #712828;
     font-size: 20px;
 }
 
