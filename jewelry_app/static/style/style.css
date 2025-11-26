@@ -224,17 +224,17 @@ button {
 
 .container_bracelet {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    row-gap: 20px;
+    grid-template-columns: repeat(3, 238px); 
+    grid-auto-rows: 305px;
+    gap: 20px;
     width: 900px;
+    min-height: 300px;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
     width: 238px;
     height: 305px;
+    flex-shrink: 0;
 }
 
 .text_grid {
@@ -295,6 +295,9 @@ select {
 .nothing {
     color: #712828;
     font-size: 20px;
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 50px;
 }
 
 .container_special_offers {

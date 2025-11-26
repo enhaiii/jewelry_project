@@ -51,8 +51,14 @@
                     <form class="searchbar" method="get" >
                         <button type="submit" class="button"><img src="../static/media/Lupa.png" alt="lupa" class="lupa"></button>
                         <input type="text" placeholder="Search.." id="search" name="search" value="{{ request.GET.search }}" class="search">
-                        {% if search_query%}
-                            <a href="?catalogs={{ request.GET.catalogs }}" id="clear-search"><img src="../static/media/Close.png" alt="close" class="close"></a>
+                        {% if request.GET.catalogs %}
+                        <input type="hidden" name="catalogs" value="{{ request.GET.catalogs }}">
+                        {% endif %}        
+                        {% if request.GET.sort %}
+                        <input type="hidden" name="sort" value="{{ request.GET.sort }}">
+                        {% endif %}
+                        {% if request.GET.search %}
+                            <a href="?{% if request.GET.catalogs %}catalogs={{ request.GET.catalogs }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}" id="clear-search"> <img src="../static/media/Close.png" alt="close" class="close">
                         {% endif %}
                     </form>
                 </div>
@@ -62,12 +68,12 @@
                         <input type="hidden" name="catalogs" value="{{ request.GET.catalogs }}">
                         <div class="resets">
                             {% if sort and search_catalogs %}
-                            <a href="/?sort={{ request.GET.sort }}" class="reset_button">Reset category</a>
-                            <a href="/?&catalogs={{ request.GET.catalogs }}" class="reset_button" style="color: #ffffff !important;">Reset sort</a>
+                            <a href="/?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}sort={{ request.GET.sort }}" class="reset_button" style="color: #ffffff !important;">Reset category</a>
+                            <a href="/?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}catalogs={{ request.GET.catalogs }}" class="reset_button" style="color: #ffffff !important;">Reset sort</a>
                             {% elif search_catalogs%}
-                            <a href="/?sort={{ request.GET.sort }}" class="reset_button" style="color: #ffffff !important;">Reset category</a>
+                            <a href="/?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}sort={{ request.GET.sort }}" class="reset_button" style="color: #ffffff !important;">Reset category</a>
                             {% elif sort%}
-                            <a href="/?catalogs={{ request.GET.catalogs }}" class="reset_button" style="color: #ffffff !important;">Reset sort</a>
+                            <a href="/?{% if request.GET.sort %}search={{ request.GET.search }}&{% endif %}catalogs={{request.GET.catalogs }}" class="reset_button" style="color: #ffffff !important;">Reset sort</a>
                             {% endif %}
                         </div>
                         <select name="sort" id="sort" onchange="this.form.submit()">
@@ -80,55 +86,29 @@
                     </form>
                 </div>
             </div>
-            {% if not search_query %}
             <div class="container_bracelet">
-                {%for jewelry in all_jewelrys%}
-                    <div class="column">
-                        <div class="bracelet">
-                            <img src="../static{{jewelry.img.url}}" alt="Bracelet" class="foto_bracelet">
-                        </div>
-                    <div class="favorite_price">
-                        <div class="price">
-                                <p class="text_grid">{{jewelry.price}}$</p>
-                                <p class="text_nosale_price">{{jewelry.old_price}}$</p>
+                    {%for jewelry in all_jewelrys%}
+                        <div class="column">
+                            <div class="bracelet">
+                                <img src="../static{{jewelry.img.url}}" alt="Bracelet" class="foto_bracelet">
                             </div>
-                            <div class="container_favorite">
-                                <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite0"></a>
-                            </div>
-                    </div>
-                        <div class="name_jewelry">
-                            <a href="/product_card/{{jewelry.id}}"><p class="text_grid">{{jewelry.name}}</p></a>
+                        <div class="favorite_price">
+                            <div class="price">
+                                    <p class="text_grid">{{jewelry.price}}$</p>
+                                    <p class="text_nosale_price">{{jewelry.old_price}}$</p>
+                                </div>
+                                <div class="container_favorite">
+                                    <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite0"></a>
+                                </div>
                         </div>
-                    </div>
+                            <div class="name_jewelry">
+                                <a href="/product_card/{{jewelry.id}}"><p class="text_grid">{{jewelry.name}}</p></a>
+                            </div>
+                        </div>
+                {% empty %}
+                    <p class="nothing">There are no products according to your requests!</p>
                 {%endfor%}
             </div>
-            {% else %}
-            <div class="container_bracelet">
-                {% if all_jewelrys%}
-                {%for jewelry in all_jewelrys%}
-                    <div class="column">
-                        <div class="bracelet">
-                            <img src="../static{{jewelry.img.url}}" alt="Bracelet" class="foto_bracelet">
-                        </div>
-                    <div class="favorite_price">
-                        <div class="price">
-                                <p class="text_grid">{{jewelry.price}}$</p>
-                                <p class="text_nosale_price">{{jewelry.old_price}}$</p>
-                            </div>
-                            <div class="container_favorite">
-                                <a href="#"><img src="../static/media/Favorite.png" alt="Favorite" class="favorite0"></a>
-                            </div>
-                    </div>
-                        <div class="name_jewelry">
-                            <a href="/product_card/{{jewelry.id}}"><p class="text_grid">{{jewelry.name}}</p></a>
-                        </div>
-                    </div>
-                {%endfor%}
-                {% else %}
-                <p class="nothing">There are no products according to your requests!</p>
-                {% endif %}
-            </div>
-            {% endif %}
         </div>
     </div>
     <div class="container_special">

@@ -16,6 +16,8 @@ def online(request):
         all_jewelrys = Products.objects.filter(catalogs__name=search_catalogs)
     elif search_query:
         all_jewelrys = Products.objects.filter(name__icontains=search_query)
+    else: 
+        all_jewelrys = Products.objects.all()
 
     match sort:
         case "A-Z":
