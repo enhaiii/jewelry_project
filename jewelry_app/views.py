@@ -40,7 +40,7 @@ def online(request):
         "sort": sort,
         "categories": categories,
     }
-    return render(request, 'site.html', context)
+    return render(request, 'main.html', context)
 
 def cards(request, name_id: int ):
     jeweler = get_object_or_404(Products, id = name_id)
