@@ -30,7 +30,7 @@ class Clients(models.Model):
         return f"{self.nickname}"
 
 class Purchases(models.Model):
-    img = models.CharField('Product', max_length=60)
+    img = models.ImageField(upload_to='Jewelry_imgs/', verbose_name='Foto')
     id_clients = models.ForeignKey(Clients, verbose_name='Client', on_delete=models.CASCADE)
     products = models.ManyToManyField('Products')
 
@@ -70,17 +70,6 @@ class Products(models.Model):
 
     def __str__(self):
         return f"{self.id}" f"{self.name}"
-
-class Special_offers(models.Model):
-    id_products = models.ForeignKey(Products, verbose_name='Name product', on_delete=models.CASCADE)
-    description = models.TextField('Description', max_length=300)
-
-    class Meta:
-        verbose_name = "Special offer"
-        verbose_name_plural = "Special offers"
-
-    def __str__(self):
-        return f"{self.id}"
 
 class Orders(models.Model):
     ST = [
