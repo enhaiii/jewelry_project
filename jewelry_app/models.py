@@ -20,7 +20,7 @@ class Clients(models.Model):
     phone_number = models.CharField('Phone number', max_length=15, unique=True)
     birthday = models.DateField('Birthday', blank=True)
     city = models.CharField('City', max_length=25)
-    id_cards = models.ForeignKey(Cards, verbose_name='Card', on_delete=models.CASCADE)
+    cards = models.ManyToManyField('Cards')
 
     class Meta:
         verbose_name = "Client"
@@ -31,8 +31,9 @@ class Clients(models.Model):
 
 class Purchases(models.Model):
     img = models.ImageField(upload_to='Jewelry_imgs/', verbose_name='Foto')
-    id_clients = models.ForeignKey(Clients, verbose_name='Client', on_delete=models.CASCADE)
+    clients = models.ForeignKey(Clients, verbose_name='Client', on_delete=models.CASCADE, default=1)
     products = models.ManyToManyField('Products')
+    date = models.DateField('Purchase date', default='2025-12-03')
 
     class Meta:
         verbose_name = "Purchase"
@@ -78,7 +79,7 @@ class Orders(models.Model):
         ("At the pick-up point", "At the pick-up point")
     ]
     total_amount = models.DecimalField ('Final price', max_digits=20, decimal_places=2)
-    id_clients = models.ForeignKey(Clients, verbose_name='Client', on_delete=models.CASCADE)
+    clients = models.ForeignKey(Clients, verbose_name='Client', on_delete=models.CASCADE)
     status = models.CharField('Status', max_length=1020, choices=ST)
     address = models.CharField('Address', max_length=25)
     payment = models.ForeignKey(Cards, verbose_name='Payment', on_delete=models.CASCADE)
