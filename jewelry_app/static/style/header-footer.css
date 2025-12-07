@@ -2,13 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.menu_img {
+.imgs {
     width: 49px;
     height: 49px;
 }
@@ -28,22 +22,7 @@
     align-items: center;
 }
 
-.user_img {
-    width: 49px;
-    height: 49px;
-}
-
-.heart_img {
-    width: 49px;
-    height: 49px;
-}
-
-.shop_img {
-    width: 49px;
-    height: 49px;
-}
-
-.imgs {
+.for_imgs {
     display: flex;
     justify-content: space-between;
     width: 207px;

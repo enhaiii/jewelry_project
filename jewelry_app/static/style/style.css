@@ -40,7 +40,7 @@
     border-radius: 7px;
     width: 510px;
     height: 69px;
-    background-color: #D9C5BD;
+    background-color: #D9C5BD; 
     padding: 14px 20px 16px 20px;
 }
 
@@ -309,7 +309,6 @@ select {
 .text_red {
     font-size: 35px;
     color: #A00404;
-
 }
 
 .caption_red {
